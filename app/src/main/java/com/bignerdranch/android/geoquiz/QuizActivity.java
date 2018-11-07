@@ -13,7 +13,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
-    private Toast mToast;
+    //private Toast mToast;
     private ImageButton mNextButton;
     private ImageButton mPrevButton;
     private TextView mQuestionTextView;
@@ -33,7 +33,7 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         mQuestionTextView=(TextView)findViewById(R.id.question_text_view);
-        updateQuestion();
+        updateQuestion();//show the question text
         mTrueButton=(Button)findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +57,7 @@ public class QuizActivity extends AppCompatActivity {
                 updateQuestion();
             }
         });
+        //mQuestionTextView.onClick==mNextButton(ImageButton).onClick
         mQuestionTextView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -80,7 +81,7 @@ public class QuizActivity extends AppCompatActivity {
 
     }
     private void updateQuestion(){
-        int question=mQuestionsBank[mCurrentIndex].getTextResId();
+        int question=mQuestionsBank[mCurrentIndex].getTextResId();//get the index of  current question
         mQuestionTextView.setText(question);
     }
     private void checkAnswer(boolean userPressTrue){
